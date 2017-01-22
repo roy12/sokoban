@@ -4,9 +4,12 @@ public class ObjectFactory {
 	public ObjectFactory() {
 		
 	}
-	public GameObject getObj(char c){
+	public GameObject getObj(char c){		
 		if(c=='#')
-			return new Wall();		
+		{
+			
+			return new Wall();
+		}
 		else if(c=='@')
 			return new Floor(false,true,new Box());		
 		else if( c== ' ')

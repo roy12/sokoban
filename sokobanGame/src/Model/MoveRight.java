@@ -1,16 +1,13 @@
-package Controller;
+package Model;
 
-import Model.Level;
-import Model.Pointer2D;
-
-public class MoveUp implements Movement {
+public class MoveRight implements Movement {
 	
-public MoveUp(Level lvl) {
+public MoveRight(Level lvl) {
 	Pointer2D to1, to2;
 	to1 =new Pointer2D(lvl.getPl());
-	to1.setX(to1.getX()-1);
+	to1.setY(to1.getY()+1);
 	to2 =new Pointer2D(lvl.getPl());
-	to2.setX(to2.getX()-2);
+	to2.setY(to2.getY()+2);
 	
 	@SuppressWarnings("unused")
 	MovementPolicy mp = new MovementPolicy(lvl,lvl.getPl(),to1,to2);

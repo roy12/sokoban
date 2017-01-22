@@ -1,9 +1,9 @@
-package View;
+/*package View;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import Controller.CommandCenter;
+import Command.Command;
 import Model.Level;
 
 public class UI {
@@ -21,13 +21,14 @@ public class UI {
 			Scanner s = new Scanner(System.in);
 			String str = s.nextLine();
 			@SuppressWarnings("unused")
-			CommandCenter command = new CommandCenter(str, lvl, exit);
-			exit=command.isExit();
-			lvl=command.getLvl();			
+			Command command = new Command(str, lvl, exit);
+						
 		}
 		
 	}
-}
+}*/
+
+
 // Load C:\\Users\\moshe\\Desktop\\מדעי המחשב\\שנה ב'\\פיתוח תכנה מתקדם\\אבן דרך\\1\\textLvls\\level2.txt
 // Load C:\\Users\\Admin\\Desktop\\sokoban\\level1.txt
-
+// Load C:\\Users\\ligyor1\\Desktop\\sokobanGame\\level1.txt

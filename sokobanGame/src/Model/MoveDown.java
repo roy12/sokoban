@@ -1,7 +1,4 @@
-package Controller;
-
-import Model.Level;
-import Model.Pointer2D;
+package Model;
 
 public class MoveDown implements Movement {
 	

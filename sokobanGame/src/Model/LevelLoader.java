@@ -1,8 +1,6 @@
-package Controller;
+package Model;
 
 import java.io.InputStream;
-
-import Model.Level;
 
 public interface LevelLoader {
 	public default Level loadLevel(InputStream in)

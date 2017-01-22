@@ -4,8 +4,6 @@ import java.beans.XMLEncoder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import Controller.LevelSaver;
-
 public class XMLLevelSaver implements LevelSaver {
 						
 		public XMLLevelSaver(Level lvl,String str) throws IOException {
