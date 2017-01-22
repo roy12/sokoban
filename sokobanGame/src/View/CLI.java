@@ -12,11 +12,13 @@ import Model.Level;
 public class CLI extends Observable implements View {
 	
 	public void start() {
+		
 		Scanner scanner = new Scanner(System.in);
 		Thread thread = new Thread(new Runnable() {
 			
-			@Override
+			
 			public void run() {
+				
 				while (true) {
 					System.out.println("Enter command: ");
 					String commandLine = scanner.nextLine();
@@ -31,8 +33,10 @@ public class CLI extends Observable implements View {
 					setChanged();
 					notifyObservers(params);
 					
-					if (commandLine.equals("exit"))
-						break;
+					if (commandLine.equals("Exit"))
+					{
+						break;						
+					}
 				}				
 			}
 		});

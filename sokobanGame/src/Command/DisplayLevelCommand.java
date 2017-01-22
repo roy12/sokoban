@@ -1,8 +1,6 @@
 package Command;
 
-import Model.Level;
 import Model.Model;
-import View.Display;
 import View.View;
 
 public class DisplayLevelCommand extends Command{

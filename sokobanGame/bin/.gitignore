@@ -1,6 +1,5 @@
-/Model/
-/levels/
-/View/
-/Controller/
 /Boot/
 /Command/
+/Controller/
+/Model/
+/View/

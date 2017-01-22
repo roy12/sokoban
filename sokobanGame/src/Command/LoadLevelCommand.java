@@ -1,14 +1,9 @@
 package Command;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
-import Model.ExtensionFinder;
-import Model.Level;
+import java.io.FileNotFoundException;
 import Model.Model;
-import Model.ObjectLevelLoader;
-import Model.TextLevelLoader;
-import Model.XMLLevelLoader;
+
 
 public class LoadLevelCommand extends Command {
 	private Model model;

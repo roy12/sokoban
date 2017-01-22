@@ -8,12 +8,14 @@ import java.util.Observer;
 
 import Command.Command;
 import Command.DisplayLevelCommand;
+import Command.ExitCommand;
 import Command.LoadLevelCommand;
 import Command.MoveCommand;
 import Command.SaveLevelCommand;
 import Controller.Controller;
 import Model.Model;
 import View.View;
+
 
 public class MyController implements Observer {
 	private Model model;
@@ -37,6 +39,8 @@ public class MyController implements Observer {
 		commands.put("Display", new DisplayLevelCommand(model, view));
 		commands.put("Load", new LoadLevelCommand(model));
 		commands.put("Save", new SaveLevelCommand(model));
+		commands.put("Exit", new ExitCommand(model));
+		
 	}	
 
 	@Override

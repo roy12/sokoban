@@ -25,13 +25,16 @@ public class Controller {
 	public void start() {
 		Thread thread = new Thread(new Runnable() {
 			
-			@Override
+			
 			public void run() {
 				while (!isStopped) {
 					try {
 						Command cmd = queue.poll(1, TimeUnit.SECONDS);
 						if (cmd != null)
-							cmd.execute();						
+						{
+							cmd.execute();
+							
+						}
 					} catch (InterruptedException e) {
 						
 						e.printStackTrace();
