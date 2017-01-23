@@ -17,21 +17,6 @@ public class Level {
 	long tStart;	
 	double elapsedSeconds ;
 	
-	public Level (Level lvl)
-	{
-		this.width=lvl.getWidth();
-		this.height=lvl.getHeight();
-		this.map=lvl.getMap();
-		this.start=lvl.getStart();
-		this.pl=lvl.getPl();
-		this.numOfTargets=lvl.getNumOfTargets();
-		this.targets=lvl.getTargets();
-		stepsCounter=0;
-		tStart=System.currentTimeMillis();
-		elapsedSeconds=0;
-		
-	}
-	
 	public Level (int width,int height,GameObject[][] map,Pointer2D start,Pointer2D pl, int numOfTargets,ArrayList <Floor> targets) {
 		this.width=width;
 		this.height=height;

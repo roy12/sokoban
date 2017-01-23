@@ -9,11 +9,12 @@ import java.util.Observable;
 import java.util.Scanner;
 
 import Command.SaveLevelCommand;
+import View.GuiDisplayer;
 
 public class Model extends Observable {
 	
 	private Level lvl=null;
-	private Level relvl=null;
+	
 	
 	public void move(String s)
 	{
@@ -43,12 +44,14 @@ public class Model extends Observable {
 		}
 		this.setChanged();
 		List<String> params = new LinkedList<String>();
-		params.add("Display");
+		display();
+		params.add("GuiDisplay");
 		this.notifyObservers(params);
 	}
 	
 	public void load(String str) throws FileNotFoundException
 	{
+		
 		FileInputStream in = new FileInputStream(str);
 		ExtensionFinder ef = new ExtensionFinder(str);
 		String str2 = ef.getStr2();
@@ -64,10 +67,11 @@ public class Model extends Observable {
 		else {
 			System.out.println("Wrong Path");
 		}
-		relvl=new Level(lvl);
+		
 		this.setChanged();
 		List<String> params = new LinkedList<String>();
-		params.add("Display");
+		display();
+		params.add("GuiDisplay");
 		this.notifyObservers(params);
 	}
 	
@@ -135,25 +139,19 @@ public class Model extends Observable {
 		}
 	}
 	
-	
-	public void restart()
-	{
-		lvl=new Level(relvl);
-		this.setChanged();
-		List<String> params = new LinkedList<String>();
-		params.add("Display");
-		this.notifyObservers(params);
-	}
-	
 	public void display() {		
 		for(int i=0;i<this.lvl.getHeight();i++){	
 			for(int j=0;j<this.lvl.getWidth();j++){
 				System.out.print(this.lvl.getMap()[i][j].getType());
-				
 			}
 		System.out.println();
 		}
 		System.out.println("steps counter: "+this.lvl.getStepsCounter());
 		System.out.println("timer: "+this.lvl.getTime());
+	}
+	
+	public void guiDisplay(){
+		GuiDisplayer gd=new GuiDisplayer(lvl);
+		gd.redraw();
 	}
 }

@@ -9,6 +9,7 @@ import java.util.Observer;
 import Command.Command;
 import Command.DisplayLevelCommand;
 import Command.ExitCommand;
+import Command.GuiDisplayerLevelCommand;
 import Command.LoadLevelCommand;
 import Command.MoveCommand;
 import Command.SaveLevelCommand;
@@ -36,9 +37,9 @@ public class MyController implements Observer {
 		commands = new HashMap<String, Command>();
 		commands.put("Move", new MoveCommand(model));	
 		commands.put("Display", new DisplayLevelCommand(model, view));
+		commands.put("GuiDisplay", new GuiDisplayerLevelCommand(model, view));
 		commands.put("Load", new LoadLevelCommand(model));
 		commands.put("Save", new SaveLevelCommand(model));
-		commands.put("Restart", new SaveLevelCommand(model));
 		commands.put("Exit", new ExitCommand(model));
 	}	
 
