@@ -143,5 +143,7 @@ public class Model extends Observable {
 			}
 		System.out.println();
 		}
+		System.out.println("steps counter: "+this.lvl.getStepsCounter());
+		System.out.println("timer: "+this.lvl.getTime());
 	}
 }

@@ -19,6 +19,7 @@ public MovementPolicy(Level lvl,Pointer2D location,Pointer2D to1,Pointer2D to2) 
 			
 			// * new * //
 			lvl.setPl(to1);	//saves player original place to real time movement
+			lvl.setStepsCounter(lvl.getStepsCounter()+1);
 		}
 		else if(last instanceof Floor & last.isEmpty())
 		{	
@@ -45,6 +46,7 @@ public MovementPolicy(Level lvl,Pointer2D location,Pointer2D to1,Pointer2D to2) 
 			// * new * //
 			lvl.setPl(to1);
 			//saves player original place to real time movement
+			lvl.setStepsCounter(lvl.getStepsCounter()+1);
 		}
 	}
 	else

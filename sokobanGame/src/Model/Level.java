@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Timer;
 
 public class Level {
 	
@@ -11,6 +12,10 @@ public class Level {
 	private Pointer2D pl;//player location
 	private int numOfTargets;
 	private ArrayList <Floor> targets;
+	private int stepsCounter;
+	private Timer timer;
+	long tStart;	
+	double elapsedSeconds ;
 	
 	public Level (int width,int height,GameObject[][] map,Pointer2D start,Pointer2D pl, int numOfTargets,ArrayList <Floor> targets) {
 		this.width=width;
@@ -20,8 +25,20 @@ public class Level {
 		this.pl=pl;
 		this.numOfTargets=numOfTargets;
 		this.targets=targets;
+		stepsCounter=0;
+		tStart=System.currentTimeMillis();
+		elapsedSeconds=0;
+		
 	}
 	
+public int getStepsCounter() {
+		return stepsCounter;
+	}
+
+	public void setStepsCounter(int stepsCounter) {
+		this.stepsCounter = stepsCounter;
+	}
+
 public Level() {}
 
 	public GameObject[][] getMap() {
@@ -92,6 +109,12 @@ public Level() {}
 		return flag;
 	}
 	
-	
+	public double getTime()
+	{
+		long tEnd = System.currentTimeMillis();
+		long tDelta = tEnd - tStart;
+		elapsedSeconds=tDelta/1000;
+		return elapsedSeconds;
+	}
 
 }
