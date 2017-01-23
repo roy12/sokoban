@@ -122,11 +122,12 @@ public class Model extends Observable {
 				str = s.nextLine();
 				SaveLevelCommand save = new SaveLevelCommand(this);
 				
-				break;
+				System.exit(0);
 			}
 			else if(str.contains("no"))
 			{
-				break;
+				
+				System.exit(0);
 			}
 			else 
 				{System.out.println("yes/no");}

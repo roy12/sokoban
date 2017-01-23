@@ -34,7 +34,7 @@ public class CLI extends Observable implements View {
 					notifyObservers(params);
 					
 					if (commandLine.equals("Exit"))
-					{
+					{						
 						break;						
 					}
 				}				
