@@ -1,12 +1,10 @@
 package view;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;import java.io.IOException;
-import java.io.InputStream;
+import java.io.FileNotFoundException;
+
 
 import Model.Level;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -46,8 +44,8 @@ public class GuiDisplayer extends Canvas{
 			box = new Image(new FileInputStream("./recources/Box.png"));
 			target = new Image(new FileInputStream("./recources/Target.png"));
 			player = new Image(new FileInputStream("./recources/Player.png"));
-			floor = new Image(new FileInputStream("./recources/Floor.png"));
-			finish = new Image(new FileInputStream("./recources/Finish.png"));
+			floor = new Image(new FileInputStream("./recources/Floor.jpg"));
+			finish = new Image(new FileInputStream("./recources/Finish.gif"));
 			
 			
 		} catch (FileNotFoundException e) {
