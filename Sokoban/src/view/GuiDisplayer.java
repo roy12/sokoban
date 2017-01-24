@@ -1,7 +1,8 @@
 package view;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.FileNotFoundException;import java.io.IOException;
+import java.io.InputStream;
 
 import Model.Level;
 import javafx.beans.property.SimpleStringProperty;
@@ -12,47 +13,85 @@ import javafx.scene.image.Image;
 
 public class GuiDisplayer extends Canvas{
 	
+	/*
+	private StringProperty wallFileName;
+	private StringProperty boxFileName;
+	private StringProperty targetFileName;
+	private StringProperty playerFileName;
+	private StringProperty floorFileName;
+	*/
 	
-private Level lvl = null;
+	private Image wall;
+	private Image box;
+	private Image player;
+	private Image target;
+	private Image floor;
+	private Image finish;
+	private Level lvl = null;
 	
-
-	public void setData(Level lvl){
-		this.lvl = lvl;
-		
 	
+	public GuiDisplayer() {
 		
-		redraw();
-	}
-
-	public void redraw(){
-		
-		StringProperty wallFiLEName , boxFileName , targetFileName , playerFileName , floorFileName;
-		Image  wall=null , box=null , target=null , player=null , floor=null ;
-		
-		wallFiLEName = new SimpleStringProperty();
+		/*
+		wallFileName = new SimpleStringProperty();
 		boxFileName = new SimpleStringProperty();
 		targetFileName = new SimpleStringProperty();
 		playerFileName = new SimpleStringProperty();
 		floorFileName = new SimpleStringProperty();
+		*/
 		
 		try {
-			wall = new Image(new FileInputStream(wallFiLEName.get()));
-			box = new Image(new FileInputStream(boxFileName.get()));
-			target = new Image(new FileInputStream(targetFileName.get()));
-			player = new Image(new FileInputStream(playerFileName.get()));
-			floor = new Image(new FileInputStream(floorFileName.get()));
+			
+			wall = new Image(new FileInputStream("./recources/Wall.png"));
+			box = new Image(new FileInputStream("./recources/Box.png"));
+			target = new Image(new FileInputStream("./recources/Target.png"));
+			player = new Image(new FileInputStream("./recources/Player.png"));
+			floor = new Image(new FileInputStream("./recources/Floor.png"));
+			finish = new Image(new FileInputStream("./recources/Finish.png"));
+			
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
 	
+	public void finishLevel()
+	{
+		
 		double W = this.getWidth();
 		double H = this.getHeight();
 		double w = W / lvl.getMap()[0].length;
 		double h = H / lvl.getMap().length;
 		
 		GraphicsContext gc = getGraphicsContext2D();
+		gc.clearRect(0, 0, W, H);
+		
+		
+	for(int i=0;i<this.lvl.getHeight();i++)
+	{	
+		for(int j=0;j<this.lvl.getWidth();j++)
+		{
+			gc.drawImage(finish , j*w, i*h, w, h);
+		}
+	}
+	}
+	
+
+	public void setData(Level lvl){
+		this.lvl = lvl;
+		redraw();
+	}
+
+	public void redraw(){
+
+		double W = this.getWidth();
+		double H = this.getHeight();
+		double w = W / lvl.getMap()[0].length;
+		double h = H / lvl.getMap().length;
+		
+		GraphicsContext gc = getGraphicsContext2D();
+		gc.clearRect(0, 0, W, H);
 		
 		for(int i=0;i<this.lvl.getHeight();i++){	
 			for(int j=0;j<this.lvl.getWidth();j++){
@@ -74,5 +113,50 @@ private Level lvl = null;
 		}
 		
 }
+	
+		
 }
+/*
+	public String getWallFiLEName() {
+		return wallFileName.get();
 	}
+
+	public void setWallFiLEName(String wallFiLEName) {
+		this.wallFileName.set(wallFiLEName);
+	}
+
+	public String getBoxFileName() {
+		return boxFileName.get();
+	}
+
+	public void setBoxFileName(String boxFileName) {
+		this.boxFileName.set(boxFileName);
+	}
+
+	public String getTargetFileNam() {
+		return targetFileName.get();
+	}
+
+	public void setTargetFileName(String targetFileName) {
+		this.targetFileName.set(targetFileName);
+	}
+
+	public String getPlayerFileName() {
+		return playerFileName.get();
+	}
+
+	public void setPlayerFileName(String playerFileName) {
+		this.playerFileName.set(playerFileName);
+	}
+
+	public String getFloorFileName() {
+		return floorFileName.get();
+	}
+
+	public void setFloorFileName(String floorFileName) {
+		this.floorFileName.set(floorFileName);
+	}
+	*/
+	}
+	
+

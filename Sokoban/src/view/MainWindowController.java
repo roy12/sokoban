@@ -21,18 +21,13 @@ public class MainWindowController extends Observable implements View, Initializa
 	@FXML
 	GuiDisplayer gd;
 	
-	
-	
-	
-	public MainWindowController() {
-	}
-	
-	
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		gd.addEventFilter(MouseEvent.MOUSE_CLICKED, (e)->gd.requestFocus());
+		
 		gd.setOnKeyPressed(new EventHandler<KeyEvent>(){
+			
 			public void handle(KeyEvent event) {		
 				
 				List<String> params=new LinkedList<String>();
@@ -107,8 +102,11 @@ public class MainWindowController extends Observable implements View, Initializa
 	
 	@Override
 	public void displayLevel(Level lvl) {
-		if(lvl!=null)
-			gd.setData(lvl);		
+		if(lvl!=null){
+			gd.setData(lvl);
+			if(lvl.isComplete())
+				gd.finishLevel();
+		}
 	}
 
 	@Override

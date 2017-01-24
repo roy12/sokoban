@@ -40,7 +40,8 @@
       <VBox prefHeight="200.0" prefWidth="53.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <GuiDisplayer fx:id="gd" height="300.0" width="300.0" BorderPane.alignment="CENTER" playerFileName="./resources/Player.png" floorFileName="./resources/Floor.png" wallFileName="./resources/Wall.png" boxFileName="./resources/Box.png" destinationFileName="./resources/Target.png" />
+      <GuiDisplayer fx:id="gd" height="300.0" width="300.0" BorderPane.alignment="CENTER" />
+      <!-- wallFileName="./recources/Wall.png" boxFileName="./recources/Box.png" playerFileName="./recources/Player.png" floorFileName="./recources/Floor.png" targetFileName="./recources/Target.png" -->
    </center>    
     <bottom>
   <HBox prefHeight="46.0" prefWidth="353.0" BorderPane.alignment="CENTER">
