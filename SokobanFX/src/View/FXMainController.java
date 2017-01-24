@@ -11,6 +11,7 @@ import javafx.stage.FileChooser;
 
 public class FXMainController extends Observable implements View {
 	@FXML
+	GuiDisplayer gd;
 	
 	public void moveDown(){
 		List<String> params = new LinkedList<String>();
