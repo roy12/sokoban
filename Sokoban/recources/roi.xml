@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_111" class="java.beans.XMLDecoder">
+ <object class="Model.Level">
+  <void property="height">
+   <int>5</int>
+  </void>
+  <void property="map">
+   <array class="[LModel.GameObject;" length="5">
+    <void index="0">
+     <array class="Model.GameObject" length="5">
+      <void index="0">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="1">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="2">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="3">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="4">
+       <object class="Model.Wall"/>
+      </void>
+     </array>
+    </void>
+    <void index="1">
+     <array class="Model.GameObject" length="5">
+      <void index="0">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="4">
+       <object class="Model.Wall"/>
+      </void>
+     </array>
+    </void>
+    <void index="2">
+     <array class="Model.GameObject" length="5">
+      <void index="0">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="4">
+       <object class="Model.Wall"/>
+      </void>
+     </array>
+    </void>
+    <void index="3">
+     <array class="Model.GameObject" length="5">
+      <void index="0">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="4">
+       <object class="Model.Wall"/>
+      </void>
+     </array>
+    </void>
+    <void index="4">
+     <array class="Model.GameObject" length="5">
+      <void index="0">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="1">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="2">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="3">
+       <object class="Model.Wall"/>
+      </void>
+      <void index="4">
+       <object class="Model.Wall"/>
+      </void>
+     </array>
+    </void>
+   </array>
+  </void>
+  <void property="numOfTargets">
+   <int>1</int>
+  </void>
+  <void property="stepsCounter">
+   <int>3</int>
+  </void>
+  <void property="targets">
+   <object class="java.util.ArrayList"/>
+  </void>
+  <void property="width">
+   <int>5</int>
+  </void>
+ </object>
+</java>

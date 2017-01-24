@@ -12,6 +12,7 @@ import Command.ExitCommand;
 import Command.GuiDisplayerLevelCommand;
 import Command.LoadLevelCommand;
 import Command.MoveCommand;
+import Command.RestartCommand;
 import Command.SaveLevelCommand;
 import Controller.Controller;
 import Model.Model;
@@ -41,6 +42,7 @@ public class MyController implements Observer {
 		commands.put("Load", new LoadLevelCommand(model));
 		commands.put("Save", new SaveLevelCommand(model));
 		commands.put("Exit", new ExitCommand(model));
+		commands.put("Restart", new RestartCommand(model));
 	}	
 
 	@Override

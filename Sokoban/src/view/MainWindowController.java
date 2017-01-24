@@ -8,10 +8,12 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import Model.Level;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 
 public class MainWindowController extends Observable implements View, Initializable {
@@ -19,43 +21,62 @@ public class MainWindowController extends Observable implements View, Initializa
 	@FXML
 	GuiDisplayer gd;
 	
+	
+	
+	
 	public MainWindowController() {
 	}
 	
-	public void handle(KeyEvent event) {		
-		
-		List<String> params=new LinkedList<String>();
-		
-		
-		if(event.getCode()== KeyCode.UP)
-		{			
-			params.add("Move");
-			params.add("Up");			
-		}
-		else if(event.getCode()== KeyCode.DOWN)
-		{	
-			params.add("Move");
-			params.add("Down");	
-		}
-		else if(event.getCode()== KeyCode.RIGHT)
-		{	
-			params.add("Move");
-			params.add("Right");		
-		}
-		else if(event.getCode()== KeyCode.LEFT)
-		{			
-			params.add("Move");
-			params.add("Left");						
-		}
-		setChanged();
-		notifyObservers(params);		
-	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		gd.addEventFilter(MouseEvent.MOUSE_CLICKED, (e)->gd.requestFocus());
+		gd.setOnKeyPressed(new EventHandler<KeyEvent>(){
+			public void handle(KeyEvent event) {		
+				
+				List<String> params=new LinkedList<String>();
+				
+				if(event.getCode()== KeyCode.UP)
+				{			
+					params.add("Move");
+					params.add("Up");			
+				}
+				else if(event.getCode()== KeyCode.DOWN)
+				{	
+					params.add("Move");
+					params.add("Down");	
+				}
+				else if(event.getCode()== KeyCode.RIGHT)
+				{	
+					params.add("Move");
+					params.add("Right");		
+				}
+				else if(event.getCode()== KeyCode.LEFT)
+				{			
+					params.add("Move");
+					params.add("Left");						
+				}
+				setChanged();
+				notifyObservers(params);		
+			}
+		});
 	}
 	
+	public void saveFile(){
+		List<String> params = new LinkedList<String>();	
+		FileChooser fc = new FileChooser();
+		fc.setTitle("Choose Directory");
+		fc.setInitialDirectory(new File("./recources"));
+		File chosen = fc.showSaveDialog(null);
+		if(chosen!=null)
+			System.out.println(chosen.getName());
+		
+		params.add("Save");
+		params.add(chosen.getName());
+		setChanged();
+		notifyObservers(params);
+	}
 
 	
 	public void openFile(){
@@ -71,6 +92,15 @@ public class MainWindowController extends Observable implements View, Initializa
 		
 		params.add("Load");
 		params.add(chosen.getPath());
+		setChanged();
+		notifyObservers(params);
+	}
+	
+	public void restartLevel()
+	{
+		
+		List<String> params=new LinkedList<String>();
+		params.add("Restart");
 		setChanged();
 		notifyObservers(params);
 	}

@@ -15,6 +15,7 @@ import view.View;
 public class Model extends Observable {
 	
 	private Level lvl=null;
+	private String str=null;
 	
 	
 	public void move(String s)
@@ -52,7 +53,7 @@ public class Model extends Observable {
 	
 	public void load(String str) throws FileNotFoundException
 	{
-		
+		this.str=str;
 		FileInputStream in = new FileInputStream(str);
 		ExtensionFinder ef = new ExtensionFinder(str);
 		String str2 = ef.getStr2();
@@ -68,6 +69,7 @@ public class Model extends Observable {
 		else {
 			System.out.println("Wrong Path");
 		}
+		
 		
 		this.setChanged();
 		List<String> params = new LinkedList<String>();
@@ -102,7 +104,7 @@ public class Model extends Observable {
 			}
 			else
 			{
-				System.out.println("i dont know to save in that filetype");
+				System.out.println("i dont know to save in that filetype");				
 			}
 		}
 		else
@@ -153,5 +155,17 @@ public class Model extends Observable {
 	
 	public void guiDisplay(View view){
 	view.displayLevel(lvl);
+	}
+	public void restart()
+	{		
+		if (str!=null)
+		{
+			try {
+				load(str);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
