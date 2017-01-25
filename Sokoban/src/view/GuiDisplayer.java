@@ -45,7 +45,7 @@ public class GuiDisplayer extends Canvas{
 			target = new Image(new FileInputStream("./recources/Target.png"));
 			player = new Image(new FileInputStream("./recources/Player.png"));
 			floor = new Image(new FileInputStream("./recources/Floor.jpg"));
-			finish = new Image(new FileInputStream("./recources/Finish.gif"));
+			finish = new Image(new FileInputStream("./recources/Finish.png"));
 			
 			
 		} catch (FileNotFoundException e) {

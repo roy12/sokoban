@@ -1,12 +1,17 @@
 package view;
 	
+import java.io.File;
+
 import Controller.MyController;
-import Model.Model;
 import Model.MyModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.fxml.FXMLLoader;
 
 
@@ -23,6 +28,16 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			primaryStage.setTitle("SokobanMaster");
+			
+			//music
+			
+			String musicFile = "./recources/MoZZ.mp3";     // For example
+
+			Media sound = new Media(new File(musicFile).toURI().toString());
+			MediaPlayer mediaPlayer = new MediaPlayer(sound);
+			mediaPlayer.play();
+			
+		
 			primaryStage.setOnCloseRequest(event -> {
 				view.exit();
 			});

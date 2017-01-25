@@ -128,14 +128,15 @@ public class MainWindowController extends Observable implements View, Initializa
 	public void displayLevel(Level lvl) {
 		if(lvl!=null){
 			gd.setData(lvl);
-			try {
-				Thread.sleep(400);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 			if(lvl.isComplete())
-				gd.finishLevel();			
+				try {
+					Thread.sleep(400);
+					gd.finishLevel();	
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+						
 		}
 	}
 
