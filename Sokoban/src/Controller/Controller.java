@@ -16,10 +16,13 @@ public class Controller {
 	}
 	
 	public void insertCommand(Command command) {
+		if(command!=null)
+		{
 		try {
 			queue.put(command);
 		} catch (InterruptedException e) {			
 			e.printStackTrace();
+		}
 		}
 	}
 	
@@ -52,7 +55,7 @@ public class Controller {
 	
 	public void stop() {
 		isStopped = true;
-	}
+	}	
 	
 }
 
