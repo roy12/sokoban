@@ -3,12 +3,13 @@ package Command;
 
 import java.io.FileNotFoundException;
 import Model.Model;
+import Model.MyModel;
 
 
 public class LoadLevelCommand extends Command {
-	private Model model;
+	private MyModel model;
 	
-	public LoadLevelCommand(Model m)
+	public LoadLevelCommand(MyModel m)
 	{
 		this.model=m;
 	}

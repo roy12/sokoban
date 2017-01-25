@@ -4,11 +4,12 @@ import java.io.IOException;
 
 
 import Model.Model;
+import Model.MyModel;
 
 public class SaveLevelCommand extends Command {
-	private Model model;
+	private MyModel model;
 	
-	public SaveLevelCommand(Model m) {
+	public SaveLevelCommand(MyModel m) {
 		this.model=m;
 	}
 

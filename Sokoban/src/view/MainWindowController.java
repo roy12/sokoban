@@ -8,19 +8,32 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import Model.Level;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
 
 public class MainWindowController extends Observable implements View, Initializable {
+	
 	
 	@FXML
 	GuiDisplayer gd;
 	
+	@FXML
+	public void exitApplication(ActionEvent event) {
+	    exit();
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -56,6 +69,8 @@ public class MainWindowController extends Observable implements View, Initializa
 				notifyObservers(params);		
 			}
 		});
+		
+		
 	}
 	
 	public void saveFile(){
@@ -100,12 +115,27 @@ public class MainWindowController extends Observable implements View, Initializa
 		notifyObservers(params);
 	}
 	
+	public void exit()
+	{
+		List<String> params=new LinkedList<String>();
+		params.add("Exit");
+		
+		setChanged();
+		notifyObservers(params);
+		
+	}
 	@Override
 	public void displayLevel(Level lvl) {
 		if(lvl!=null){
 			gd.setData(lvl);
+			try {
+				Thread.sleep(400);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(lvl.isComplete())
-				gd.finishLevel();
+				gd.finishLevel();			
 		}
 	}
 
@@ -117,7 +147,8 @@ public class MainWindowController extends Observable implements View, Initializa
 
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
+		
+		//exit()
 		
 	}
 

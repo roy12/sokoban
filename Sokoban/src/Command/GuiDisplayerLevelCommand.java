@@ -1,14 +1,15 @@
 package Command;
 
 import Model.Model;
+import Model.MyModel;
 import view.View;
 
 public class GuiDisplayerLevelCommand extends Command{
 
-	private Model model;
+	private MyModel model;
 	private View view;
 	
-	public GuiDisplayerLevelCommand(Model model, View view) {
+	public GuiDisplayerLevelCommand(MyModel model, View view) {
 		this.model = model;
 		this.view = view;
 	}	

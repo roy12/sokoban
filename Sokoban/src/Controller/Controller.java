@@ -5,6 +5,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import Command.Command;
+import Command.ExitCommand;
 
 public class Controller {
 	private BlockingQueue<Command> queue;
@@ -32,6 +33,10 @@ public class Controller {
 						Command cmd = queue.poll(1, TimeUnit.SECONDS);
 						if (cmd != null)
 						{
+							if (cmd.equals(ExitCommand.class))
+							{
+								stop();
+							}
 							cmd.execute();
 							
 						}

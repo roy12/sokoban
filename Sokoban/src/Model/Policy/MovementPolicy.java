@@ -1,4 +1,9 @@
-package Model;
+package Model.Policy;
+
+import Model.Floor;
+import Model.GameObject;
+import Model.Level;
+import Model.Pointer2D;
 
 public class MovementPolicy {
 public MovementPolicy(Level lvl,Pointer2D location,Pointer2D to1,Pointer2D to2) {

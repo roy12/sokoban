@@ -2,11 +2,12 @@ package Command;
 
 
 import Model.Model;
+import Model.MyModel;
 
 public class ExitCommand extends Command{
-	private Model model;
+	private MyModel model;
 	
-public ExitCommand(Model m)  {
+public ExitCommand(MyModel m)  {
 	this.model=m;
 }
 	public void execute() {

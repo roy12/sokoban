@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import Controller.MyController;
 import Model.Model;
+import Model.MyModel;
 import view.CLI;
 
 
@@ -11,7 +12,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-		Model model = new Model();
+		MyModel model = new MyModel();
 		CLI view = new CLI();
 		MyController controller = new MyController(model, view);
 		

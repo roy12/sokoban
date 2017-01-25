@@ -16,17 +16,18 @@ import Command.RestartCommand;
 import Command.SaveLevelCommand;
 import Controller.Controller;
 import Model.Model;
+import Model.MyModel;
 import view.View;
 
 
 public class MyController implements Observer {
-	private Model model;
+	private MyModel model;
 	private View view;
 	private Controller controller;
 	private Map<String, Command> commands;
 		
 	
-	public MyController(Model model, View view) {
+	public MyController(MyModel model, View view) {
 		this.model = model;
 		this.view = view;
 		

@@ -1,11 +1,12 @@
 package Command;
 
 import Model.Model;
+import Model.MyModel;
 
 public class RestartCommand extends Command {
-	private Model model;
+	private MyModel model;
 	
-	public RestartCommand(Model m)
+	public RestartCommand(MyModel m)
 	{
 		this.model=m;
 	}

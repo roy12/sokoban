@@ -63,16 +63,12 @@ public class GuiDisplayer extends Canvas{
 		double h = H / lvl.getMap().length;
 		
 		GraphicsContext gc = getGraphicsContext2D();
-		gc.clearRect(0, 0, W, H);
 		
+		gc.clearRect(0, 0, W, H);		
 		
-	for(int i=0;i<this.lvl.getHeight();i++)
-	{	
-		for(int j=0;j<this.lvl.getWidth();j++)
-		{
-			gc.drawImage(finish , j*w, i*h, w, h);
-		}
-	}
+			
+			gc.drawImage(finish , 5,5, W, H);
+	
 	}
 	
 

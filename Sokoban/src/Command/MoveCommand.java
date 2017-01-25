@@ -1,11 +1,12 @@
 package Command;
 
 import Model.Model;
+import Model.MyModel;
 
 public class MoveCommand extends Command {
-	private Model model;
+	private MyModel model;
 	
-public MoveCommand(Model m) {
+public MoveCommand(MyModel m) {
 	this.model=m;
 	}
 

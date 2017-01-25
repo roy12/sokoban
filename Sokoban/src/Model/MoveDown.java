@@ -1,5 +1,7 @@
 package Model;
 
+import Model.Policy.MovementPolicy;
+
 public class MoveDown implements Movement {
 	
 public MoveDown(Level lvl) {
