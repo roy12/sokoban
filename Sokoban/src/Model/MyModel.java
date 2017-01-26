@@ -19,21 +19,25 @@ public class MyModel extends Model {
 		{
 		if(s.contains("Down"))
 		{
+			lvl.setLastMove("Down");
 			@SuppressWarnings("unused")
-			Movement m=new MoveDown(lvl);
+			Movement m=new MoveDown(lvl);			
 		}
 		else if(s.contains("Right"))
 		{
+			lvl.setLastMove("Right");
 			@SuppressWarnings("unused")
 			Movement m=new MoveRight(lvl);
 		}
 		else if(s.contains("Left"))
 		{
+			lvl.setLastMove("Left");
 			@SuppressWarnings("unused")
 			Movement m=new MoveLeft(lvl);
 		}
 		else if(s.contains("Up"))
 		{
+			lvl.setLastMove("Up");
 			@SuppressWarnings("unused")
 			Movement m=new MoveUp(lvl);
 		}

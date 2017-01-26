@@ -17,7 +17,16 @@ public class Level {
 	long tStart;	
 	double elapsedSeconds ;
 	private GameObject[][] backupmap;
+	String lastMove;
 	
+	public String getLastMove() {
+		return lastMove;
+	}
+
+	public void setLastMove(String lastMove) {
+		this.lastMove = lastMove;
+	}
+
 	public GameObject[][] getBackupmap() {
 		return backupmap;
 	}
@@ -37,7 +46,7 @@ public class Level {
 		stepsCounter=0;
 		tStart=System.currentTimeMillis();
 		elapsedSeconds=0;
-		
+		lastMove="Down";
 	}
 	
 	public Level (int width,int height,GameObject[][] map,Pointer2D start,Pointer2D pl, int numOfTargets,ArrayList <Floor> targets) {
@@ -52,7 +61,7 @@ public class Level {
 		stepsCounter=0;
 		tStart=System.currentTimeMillis();
 		elapsedSeconds=0;
-		
+		lastMove="Down";
 	}
 	
 public int getStepsCounter() {

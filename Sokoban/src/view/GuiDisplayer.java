@@ -99,7 +99,20 @@ public class GuiDisplayer extends Canvas{
 					gc.drawImage(box ,j*w, i*h, w, h);
 				}
 				else if(lvl.getMap()[i][j].getType()=='A'){
-					gc.drawImage(player , j*w, i*h, w, h);
+					if (lvl.getLastMove().equals("Down"))
+						gc.drawImage(player , j*w, i*h, w, h);
+					else if(lvl.getLastMove().equals("Up"))
+					{
+						gc.drawImage(player , j*w, i*h, w, h);
+					}
+					else if(lvl.getLastMove().equals("Left"))
+					{
+						gc.drawImage(player , j*w, i*h, w, h);
+					}
+					else if(lvl.getLastMove().equals("Right"))
+					{
+						gc.drawImage(player , j*w, i*h, w, h);
+					}
 				}
 				else if(lvl.getMap()[i][j].getType()=='o'){
 					gc.drawImage(target , j*w, i*h, w, h);
