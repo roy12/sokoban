@@ -12,7 +12,11 @@ public class GuiDisplayerLevelCommand extends Command{
 	public GuiDisplayerLevelCommand(MyModel model, View view) {
 		this.model = model;
 		this.view = view;
-	}	
+	}
+	public boolean isExit()
+	{
+		return false;
+	}
 
 	@Override
 	public void execute() {

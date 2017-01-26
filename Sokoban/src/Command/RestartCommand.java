@@ -11,6 +11,11 @@ public class RestartCommand extends Command {
 		this.model=m;
 	}
 	
+	public boolean isExit()
+	{
+		return false;
+	}
+	
 	public void execute() 
 	{	
 		model.restart();
