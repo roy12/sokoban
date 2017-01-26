@@ -10,6 +10,11 @@ public abstract class Command
 	public void setParams(List<String> params) {
 		this.params = params;
 	}
+	
+	public boolean isExit()
+	{
+		return false;
+	}
 	public abstract void execute();
 }
 		

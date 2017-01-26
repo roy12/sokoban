@@ -10,6 +10,11 @@ public MoveCommand(MyModel m) {
 	this.model=m;
 	}
 
+public boolean isExit()
+{
+	return false;
+}
+
 @Override
 public void execute() {
 	String direction = params.get(0);		

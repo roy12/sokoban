@@ -36,8 +36,9 @@ public class Controller {
 						Command cmd = queue.poll(1, TimeUnit.SECONDS);
 						if (cmd != null)
 						{
-							if (cmd.equals(ExitCommand.class))
-							{
+							
+							if (cmd.isExit())
+							{								
 								stop();
 							}
 							cmd.execute();

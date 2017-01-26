@@ -13,6 +13,10 @@ public ExitCommand(MyModel m)  {
 	public void execute() {
 	model.exit();
 	}
+	public boolean isExit()
+	{
+		return true;
+	}
 	
 }
 

@@ -12,7 +12,12 @@ public class SaveLevelCommand extends Command {
 	public SaveLevelCommand(MyModel m) {
 		this.model=m;
 	}
-
+	
+	public boolean isExit()
+	{
+		return false;
+	}
+	
 	@Override
 	public void execute() {
 		String saveAs = params.get(0);

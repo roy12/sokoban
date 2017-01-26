@@ -18,5 +18,9 @@ public class DisplayLevelCommand extends Command{
 	public void execute() {
 		model.display();
 	}
+	public boolean isExit()
+	{
+		return false;
+	}
 
 }
