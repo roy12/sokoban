@@ -63,13 +63,13 @@ public class MyModel extends Model {
 		ExtensionFinder ef = new ExtensionFinder(str);
 		String str2 = ef.getStr2();
 		if (str2.contains("txt")){
-			this.lvl = new TextLevelLoader().loadLevel(in);
+			this.lvl = new TextLevelLoader().loadLevel(in);		//Load is ok
 		}
 		else if (str2.contains("xml")){
-			this.lvl = new XMLLevelLoader().loadLevel(in);
+			this.lvl = new XMLLevelLoader().loadLevel(in);		//Load is NOT ok, we load Model here! we need to load Level.
 		}
 		else if (str2.contains("ser")){
-			this.lvl = new ObjectLevelLoader().loadLevel(in);
+			this.lvl = new ObjectLevelLoader().loadLevel(in);	//Load is NOT ok, we load Model here! we need to load Level.
 		}
 		else {
 			System.out.println("Wrong Path");
@@ -95,15 +95,15 @@ public class MyModel extends Model {
 			{
 			if (str2.contains("txt")){
 				@SuppressWarnings("unused")
-				TextLevelSaver textSave = new TextLevelSaver(lvl,str);
+				TextLevelSaver textSave = new TextLevelSaver(lvl,str);	//Save is ok 
 			}
 			else if (str2.contains("xml")){
 				@SuppressWarnings("unused")
-				XMLLevelSaver xmlSave = new XMLLevelSaver(lvl, str);
+				XMLLevelSaver xmlSave = new XMLLevelSaver(lvl, str);	//Save is NOT ok, we send (Model,str) here.
 			}
 			else if (str2.contains("ser")){
 				@SuppressWarnings("unused")
-				ObjectLevelSaver objectSave = new ObjectLevelSaver(lvl, str);
+				ObjectLevelSaver objectSave = new ObjectLevelSaver(lvl, str);	//Save is NOT ok, we send (Model,str) here.
 			}
 			else {
 				System.out.println("Wrong Path");
