@@ -17,6 +17,9 @@ import Command.SaveLevelCommand;
 import Controller.Controller;
 import Model.Model;
 import Model.MyModel;
+import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import view.View;
 
 
@@ -25,11 +28,16 @@ public class MyController implements Observer {
 	private View view;
 	private Controller controller;
 	private Map<String, Command> commands;
+	
+	IntegerProperty steps;
 		
 	
 	public MyController(MyModel model, View view) {
 		this.model = model;
 		this.view = view;
+		
+		steps = new SimpleIntegerProperty();
+		view.bindSteps(steps);
 		
 		initCommands();
 		controller = new Controller();
@@ -57,5 +65,14 @@ public class MyController implements Observer {
 		}
 		c.setParams(params);
 		controller.insertCommand(c);
+		
+		Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				steps.set(model.getStepC());
+				
+			}
+		});
 	}
 }

@@ -2,7 +2,8 @@ package view;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
+import java.io.FileOutputStream;import java.io.IOException;
+import java.io.InputStream;
 
 import Model.Level;
 import javafx.scene.canvas.Canvas;
@@ -46,13 +47,13 @@ public class GuiDisplayer extends Canvas{
 			wall = new Image(new FileInputStream("./recources/Wall.png"));
 			box = new Image(new FileInputStream("./recources/Box.png"));
 			target = new Image(new FileInputStream("./recources/Target.png"));
-			player = new Image(new FileInputStream("./recources/Player.png"));
+			player = new Image(new FileInputStream("./recources/Players/Cartman/Player_Down.png"));
 			floor = new Image(new FileInputStream("./recources/Floor.jpg"));
 			finish = new Image(new FileInputStream("./recources/Finish.png"));
-			movedown = new Image(new FileInputStream("./recources/movedown.png"));
-			moveup = new Image(new FileInputStream("./recources/moveup.png"));
-			moveright = new Image(new FileInputStream("./recources/moveright.png"));
-			moveleft = new Image(new FileInputStream("./recources/moveleft.png"));
+			movedown = new Image(new FileInputStream("./recources/Players/Saya/Player_Down.png"));
+			moveup = new Image(new FileInputStream("./recources/Players/Saya/Player_Up.png"));
+			moveright = new Image(new FileInputStream("./recources/Players/Saya/Player_Right.png"));
+			moveleft = new Image(new FileInputStream("./recources/Players/Saya/Player_Left.png"));
 			
 			
 		} catch (FileNotFoundException e) {
@@ -130,6 +131,24 @@ public class GuiDisplayer extends Canvas{
 	
 		
 }
+	
+	public void displayOpenPage()
+	{
+		try {
+			Image openPage  = new Image(new FileInputStream("./recources/OpenGame/Open_Game2.png"));
+			if(openPage!=null){
+			GraphicsContext gc = getGraphicsContext2D();
+			double w = getWidth();
+			double h = getHeight();
+			
+			gc.drawImage(openPage,0,0);
+			
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 /*
 	public String getWallFiLEName() {
 		return wallFileName.get();

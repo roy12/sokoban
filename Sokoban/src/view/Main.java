@@ -51,7 +51,7 @@ public class Main extends Application {
 	
 	public void playMusic()
 	{
-		String musicFile = "./recources/MoZZ.mp3";     // For example
+		String musicFile = "./recources/OpenGame/MoZZ.mp3";     // For example
 		
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		MediaPlayer mediaPlayer = new MediaPlayer(sound);

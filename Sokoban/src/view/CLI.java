@@ -6,6 +6,7 @@ import java.util.Observable;
 import java.util.Scanner;
 
 import Model.Level;
+import javafx.beans.property.IntegerProperty;
 
 
 
@@ -57,6 +58,13 @@ public class CLI extends Observable implements View {
 			}
 		System.out.println();
 		}
+		
+	}
+
+
+	@Override
+	public void bindSteps(IntegerProperty steps) {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -12,7 +12,6 @@ public class Level {
 	private Pointer2D pl;//player location
 	private int numOfTargets;
 	private ArrayList <Floor> targets;
-	private int stepsCounter;
 	private Timer timer;
 	long tStart;	
 	double elapsedSeconds ;
@@ -42,8 +41,6 @@ public class Level {
 		this.start=lvl.getStart();
 		this.pl=lvl.getPl();
 		this.numOfTargets=lvl.getNumOfTargets();
-		this.targets=lvl.getTargets();
-		stepsCounter=0;
 		tStart=System.currentTimeMillis();
 		elapsedSeconds=0;
 		lastMove="Down";
@@ -58,19 +55,12 @@ public class Level {
 		this.pl=pl;
 		this.numOfTargets=numOfTargets;
 		this.targets=targets;
-		stepsCounter=0;
 		tStart=System.currentTimeMillis();
 		elapsedSeconds=0;
 		lastMove="Down";
 	}
 	
-public int getStepsCounter() {
-		return stepsCounter;
-	}
 
-	public void setStepsCounter(int stepsCounter) {
-		this.stepsCounter = stepsCounter;
-	}
 
 public Level() {}
 

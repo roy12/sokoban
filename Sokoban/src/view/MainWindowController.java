@@ -8,20 +8,18 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import Model.Level;
+import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.input.InputEvent;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Stage;
 
 public class MainWindowController extends Observable implements View, Initializable {
 	
@@ -33,9 +31,14 @@ public class MainWindowController extends Observable implements View, Initializa
 	public void exitApplication(ActionEvent event) {
 	    exit();
 	}
+	
+	@FXML
+	Label stepsLabel;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		gd.displayOpenPage();
 		
 		gd.addEventFilter(MouseEvent.MOUSE_CLICKED, (e)->gd.requestFocus());
 		
@@ -96,14 +99,20 @@ public class MainWindowController extends Observable implements View, Initializa
 		FileChooser fc = new FileChooser();
 		fc.setTitle("Choose File");
 		fc.setInitialDirectory(new File("./recources"));
+		fc.getExtensionFilters().addAll(
+				new ExtensionFilter("Text","*.txt"),
+				new ExtensionFilter("XML","*.xml"),
+				new ExtensionFilter("Object","*.obj")
+				);
 		File chosen = fc.showOpenDialog(null);
-		if(chosen!=null)
+		if(chosen!=null){
 			System.out.println(chosen.getName());
 		
 		params.add("Load");
 		params.add(chosen.getPath());
 		setChanged();
 		notifyObservers(params);
+		}
 	}
 	
 	public void restartLevel()
@@ -149,6 +158,18 @@ public class MainWindowController extends Observable implements View, Initializa
 	@Override
 	public void start() {		
 		
+	}
+	
+	public void bindSteps(IntegerProperty stepsC)
+	{
+		Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				stepsLabel.textProperty().bind((stepsC).asString());
+				
+			}
+		});
 	}
 
 }

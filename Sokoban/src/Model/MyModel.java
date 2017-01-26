@@ -12,6 +12,7 @@ public class MyModel extends Model {
 	private Level lvl=null;
 	private String str=null;
 	
+	private int stepC = 0;
 	
 	public void move(String s)
 	{
@@ -45,6 +46,8 @@ public class MyModel extends Model {
 		{
 			System.out.println("Unknown Command");
 		}
+		setStepC(getStepC() + 1);
+		
 		this.setChanged();
 		List<String> params = new LinkedList<String>();
 		display();
@@ -71,6 +74,8 @@ public class MyModel extends Model {
 		else {
 			System.out.println("Wrong Path");
 		}
+		
+		setStepC(0);
 		
 		
 		this.setChanged();
@@ -153,8 +158,6 @@ public class MyModel extends Model {
 			}
 		System.out.println();
 		}
-		System.out.println("steps counter: "+this.lvl.getStepsCounter());
-		System.out.println("timer: "+this.lvl.getTime());
 	}
 	
 	public void guiDisplay(View view){
@@ -171,6 +174,14 @@ public class MyModel extends Model {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public int getStepC() {
+		return stepC;
+	}
+
+	public void setStepC(int stepC) {
+		this.stepC = stepC;
 	}
 }
 

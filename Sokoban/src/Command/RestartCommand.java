@@ -12,7 +12,7 @@ public class RestartCommand extends Command {
 	}
 	
 	public void execute() 
-	{		
+	{	
 		model.restart();
 	}
 }

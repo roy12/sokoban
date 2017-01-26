@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="1.8.0_111" class="java.beans.XMLDecoder">
  <object class="Model.Level">
-  <void property="height">
-   <int>5</int>
-  </void>
-  <void property="map">
-   <array class="[LModel.GameObject;" length="5">
+  <void property="backupmap">
+   <array class="[LModel.GameObject;" length="5" id="GameObjectArrayArray0">
     <void index="0">
      <array class="Model.GameObject" length="5">
       <void index="0">
@@ -76,11 +73,17 @@
     </void>
    </array>
   </void>
+  <void property="height">
+   <int>5</int>
+  </void>
+  <void property="lastMove">
+   <string>Down</string>
+  </void>
+  <void property="map">
+   <object idref="GameObjectArrayArray0"/>
+  </void>
   <void property="numOfTargets">
    <int>1</int>
-  </void>
-  <void property="stepsCounter">
-   <int>3</int>
   </void>
   <void property="targets">
    <object class="java.util.ArrayList"/>

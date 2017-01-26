@@ -6,11 +6,13 @@ import Model.Level;
 import Model.Pointer2D;
 
 public class MovementPolicy {
+	
 public MovementPolicy(Level lvl,Pointer2D location,Pointer2D to1,Pointer2D to2) {
 	
 	GameObject[][] map=lvl.getMap();
 	GameObject current = map[location.getX()][location.getY()];	//this block (x,y)
 	GameObject next = map[to1.getX()][to1.getY()];	//next block (x+1,x-1,y+1,y-1)
+	
 	
 	
 	if(next instanceof Floor)
@@ -24,7 +26,6 @@ public MovementPolicy(Level lvl,Pointer2D location,Pointer2D to1,Pointer2D to2) 
 			
 			// * new * //
 			lvl.setPl(to1);	//saves player original place to real time movement
-			lvl.setStepsCounter(lvl.getStepsCounter()+1);
 		}
 		else if(last instanceof Floor & last.isEmpty())
 		{	
@@ -51,7 +52,6 @@ public MovementPolicy(Level lvl,Pointer2D location,Pointer2D to1,Pointer2D to2) 
 			// * new * //
 			lvl.setPl(to1);
 			//saves player original place to real time movement
-			lvl.setStepsCounter(lvl.getStepsCounter()+1);
 		}
 	}
 	else
