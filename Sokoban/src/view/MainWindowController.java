@@ -147,9 +147,7 @@ public class MainWindowController extends Observable implements View, Initializa
 	}
 
 	@Override
-	public void start() {
-		
-		//exit()
+	public void start() {		
 		
 	}
 

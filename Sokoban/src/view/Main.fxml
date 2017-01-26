@@ -37,11 +37,11 @@
       </MenuBar>
    </top>
    <left>
-      <VBox prefHeight="200.0" prefWidth="53.0" BorderPane.alignment="CENTER" />
+      <!--<VBox prefHeight="200.0" prefWidth="53.0" BorderPane.alignment="CENTER" />  -->
    </left>
    <center>
       <GuiDisplayer fx:id="gd" height="300.0" width="300.0" BorderPane.alignment="CENTER" />
-      <!-- wallFileName="./recources/Wall.png" boxFileName="./recources/Box.png" playerFileName="./recources/Player.png" floorFileName="./recources/Floor.png" targetFileName="./recources/Target.png" -->
+      <!-- wallFileName="./recources/Wall.png" boxFileName="./recources/Box.png" playerFileName="./recources/Player.png" movedownFileName="./recources/movedown.png" moveupFileName="./recources/moveup.png" moverightFileName="./recources/moverigh.png" moveleftFileName="./recources/moveleft.png" floorFileName="./recources/Floor.png" targetFileName="./recources/Target.png" -->
    </center>    
     <bottom>
   <HBox prefHeight="46.0" prefWidth="353.0" BorderPane.alignment="CENTER">

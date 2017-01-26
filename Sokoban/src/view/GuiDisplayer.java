@@ -26,7 +26,10 @@ public class GuiDisplayer extends Canvas{
 	private Image floor;
 	private Image finish;
 	private Level lvl = null;
-	
+	private Image movedown;
+	private Image moveup;
+	private Image moveright;
+	private Image moveleft;
 	
 	public GuiDisplayer() {
 		
@@ -46,6 +49,10 @@ public class GuiDisplayer extends Canvas{
 			player = new Image(new FileInputStream("./recources/Player.png"));
 			floor = new Image(new FileInputStream("./recources/Floor.jpg"));
 			finish = new Image(new FileInputStream("./recources/Finish.png"));
+			movedown = new Image(new FileInputStream("./recources/movedown.png"));
+			moveup = new Image(new FileInputStream("./recources/moveup.png"));
+			moveright = new Image(new FileInputStream("./recources/moveright.png"));
+			moveleft = new Image(new FileInputStream("./recources/moveleft.png"));
 			
 			
 		} catch (FileNotFoundException e) {
@@ -100,18 +107,18 @@ public class GuiDisplayer extends Canvas{
 				}
 				else if(lvl.getMap()[i][j].getType()=='A'){
 					if (lvl.getLastMove().equals("Down"))
-						gc.drawImage(player , j*w, i*h, w, h);
+						gc.drawImage(movedown , j*w, i*h, w, h);
 					else if(lvl.getLastMove().equals("Up"))
 					{
-						gc.drawImage(player , j*w, i*h, w, h);
+						gc.drawImage(moveup , j*w, i*h, w, h);
 					}
 					else if(lvl.getLastMove().equals("Left"))
 					{
-						gc.drawImage(player , j*w, i*h, w, h);
+						gc.drawImage(moveleft , j*w, i*h, w, h);
 					}
 					else if(lvl.getLastMove().equals("Right"))
 					{
-						gc.drawImage(player , j*w, i*h, w, h);
+						gc.drawImage(moveright , j*w, i*h, w, h);
 					}
 				}
 				else if(lvl.getMap()[i][j].getType()=='o'){
