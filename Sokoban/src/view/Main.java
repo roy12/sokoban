@@ -6,6 +6,7 @@ import Controller.MyController;
 import Model.MyModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import sun.audio.ContinuousAudioDataStream;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
@@ -28,14 +29,8 @@ public class Main extends Application {
 			primaryStage.setTitle("SokobanMaster");
 			
 			//music
+			playMusic();
 			
-			String musicFile = "./recources/MoZZ.mp3";     // For example
-
-			Media sound = new Media(new File(musicFile).toURI().toString());
-			MediaPlayer mediaPlayer = new MediaPlayer(sound);
-			mediaPlayer.play();
-			
-		
 			primaryStage.setOnCloseRequest(event -> {
 				view.exit();
 			});
@@ -52,6 +47,16 @@ public class Main extends Application {
 		model.addObserver(controller);
 		view.addObserver(controller);
 		view.start();	
+	}
+	
+	public void playMusic()
+	{
+		String musicFile = "./recources/MoZZ.mp3";     // For example
+		
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.setCycleCount(5);
+		mediaPlayer.play();
 	}
 	
 	public static void main(String[] args) {
