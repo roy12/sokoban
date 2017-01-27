@@ -1,4 +1,4 @@
-package view;
+package Boot;
 	
 import java.io.File;
 
@@ -6,6 +6,8 @@ import Controller.MyController;
 import Model.MyModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import view.ClientHandler;
+import view.MainWindowController;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
