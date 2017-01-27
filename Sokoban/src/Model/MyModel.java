@@ -14,6 +14,10 @@ public class MyModel extends Model {
 	
 	private int stepC = 0;
 	
+	public MyModel() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public void move(String s)
 	{
 		if(!lvl.isComplete())
@@ -99,7 +103,7 @@ public class MyModel extends Model {
 			}
 			else if (str2.contains("xml")){
 				@SuppressWarnings("unused")
-				XMLLevelSaver xmlSave = new XMLLevelSaver(lvl, str);	//Save is NOT ok, we send (Model,str) here.
+				XMLLevelSaver xmlSave = new XMLLevelSaver(this.lvl, str);	//Save is NOT ok, we send (Model,str) here.
 			}
 			else if (str2.contains("ser")){
 				@SuppressWarnings("unused")

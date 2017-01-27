@@ -91,7 +91,9 @@ public class Floor extends GameObject {
 
 
 
-	
+	public Floor() {
+		// TODO Auto-generated constructor stub
+	}
 
 	
 

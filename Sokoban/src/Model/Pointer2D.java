@@ -4,6 +4,10 @@ public class Pointer2D {
 	private int x;
 	private int y;
 	
+	public Pointer2D() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Pointer2D(int x,int y) {
 		this.x=x;
 		this.y=y;	

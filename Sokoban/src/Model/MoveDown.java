@@ -3,7 +3,9 @@ package Model;
 import Model.Policy.MovementPolicy;
 
 public class MoveDown implements Movement {
-	
+	public MoveDown() {
+		// TODO Auto-generated constructor stub
+	}
 public MoveDown(Level lvl) {
 	Pointer2D to1, to2;
 	to1 = new Pointer2D(lvl.getPl());

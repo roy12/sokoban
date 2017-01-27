@@ -32,4 +32,8 @@ public void setStr2(String str2) {
 	this.str2 = str2;
 }
 
+public ExtensionFinder() {
+	// TODO Auto-generated constructor stub
+}
+
 }

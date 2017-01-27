@@ -2,9 +2,6 @@ package view;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;import java.io.IOException;
-import java.io.InputStream;
-
 import Model.Level;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -44,12 +41,12 @@ public class GuiDisplayer extends Canvas{
 		
 		try {
 			
-			wall = new Image(new FileInputStream("./recources/Wall.png"));
-			box = new Image(new FileInputStream("./recources/Box.png"));
-			target = new Image(new FileInputStream("./recources/Target.png"));
+			wall = new Image(new FileInputStream("./recources/LevelObjects/Wall.png"));
+			box = new Image(new FileInputStream("./recources/LevelObjects/Box.png"));
+			target = new Image(new FileInputStream("./recources/LevelObjects/Target.png"));
 			player = new Image(new FileInputStream("./recources/Players/Cartman/Player_Down.png"));
-			floor = new Image(new FileInputStream("./recources/Floor.jpg"));
-			finish = new Image(new FileInputStream("./recources/Finish.png"));
+			floor = new Image(new FileInputStream("./recources/LevelObjects/Floor.png"));
+			finish = new Image(new FileInputStream("./recources/FinishLevel/Finish.png"));
 			movedown = new Image(new FileInputStream("./recources/Players/Saya/Player_Down.png"));
 			moveup = new Image(new FileInputStream("./recources/Players/Saya/Player_Up.png"));
 			moveright = new Image(new FileInputStream("./recources/Players/Saya/Player_Right.png"));

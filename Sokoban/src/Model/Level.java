@@ -18,6 +18,8 @@ public class Level {
 	private GameObject[][] backupmap;
 	String lastMove;
 	
+	
+	
 	public String getLastMove() {
 		return lastMove;
 	}
@@ -59,10 +61,9 @@ public class Level {
 		elapsedSeconds=0;
 		lastMove="Down";
 	}
-	
-
-
-public Level() {}
+public Level() {
+	// TODO Auto-generated constructor stub
+}
 
 	public GameObject[][] getMap() {
 		return map;
@@ -138,6 +139,14 @@ public Level() {}
 		long tDelta = tEnd - tStart;
 		elapsedSeconds=tDelta/1000;
 		return elapsedSeconds;
+	}
+
+	public Timer getTimer() {
+		return timer;
+	}
+
+	public void setTimer(Timer timer) {
+		this.timer = timer;
 	}
 	
 }

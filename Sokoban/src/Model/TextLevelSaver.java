@@ -23,5 +23,9 @@ public class TextLevelSaver implements LevelSaver{
 		System.out.println("save ok");
 	}
 	
+	public TextLevelSaver() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 }

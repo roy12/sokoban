@@ -29,7 +29,12 @@ public class Main extends Application {
 			primaryStage.setTitle("SokobanMaster");
 			
 			//music
-			playMusic();
+			
+			String musicFile = "./recources/OpenGame/MoZZ.mp3";     // For example
+			Media sound = new Media(new File(musicFile).toURI().toString());
+			MediaPlayer mediaPlayer = new MediaPlayer(sound);
+			mediaPlayer.setCycleCount(5);
+			mediaPlayer.play();
 			
 			primaryStage.setOnCloseRequest(event -> {
 				view.exit();
@@ -49,16 +54,7 @@ public class Main extends Application {
 		view.start();	
 	}
 	
-	public void playMusic()
-	{
-		String musicFile = "./recources/OpenGame/MoZZ.mp3";     // For example
-		
-		Media sound = new Media(new File(musicFile).toURI().toString());
-		MediaPlayer mediaPlayer = new MediaPlayer(sound);
-		mediaPlayer.setCycleCount(5);
-		mediaPlayer.play();
-	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}

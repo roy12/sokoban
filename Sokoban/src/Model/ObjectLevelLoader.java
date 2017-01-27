@@ -23,4 +23,9 @@ public class ObjectLevelLoader implements LevelLoader{
 		}
 		return newLevel;
 	}
+	
+	public ObjectLevelLoader() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	}

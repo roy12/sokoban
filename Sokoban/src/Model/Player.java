@@ -6,7 +6,9 @@ public class Player extends MoveAbleObject{
 
 	private Pointer2D location;
 	
-	
+	public Player() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Player(Pointer2D location) {
 		this.location=location;

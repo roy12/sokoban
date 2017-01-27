@@ -1,22 +1,21 @@
 package Model;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Observable;
-import java.util.Scanner;
 
-import Command.SaveLevelCommand;
-import view.GuiDisplayer;
-import view.View;
+
+import java.util.Observable;
+
+
 
 public class Model extends Observable {
 	
 	private Level lvl=null;
 	private String str=null;
 	
+	public Model() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public void move(String s)
 	{		
@@ -36,6 +35,22 @@ public class Model extends Observable {
 	
 	public void display()
 	{		
+	}
+
+	public Level getLvl() {
+		return lvl;
+	}
+
+	public void setLvl(Level lvl) {
+		this.lvl = lvl;
+	}
+
+	public String getStr() {
+		return str;
+	}
+
+	public void setStr(String str) {
+		this.str = str;
 	}
 	
 }
