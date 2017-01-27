@@ -98,7 +98,7 @@ public class MainWindowController extends Observable implements View, Initializa
 		
 		FileChooser fc = new FileChooser();
 		fc.setTitle("Choose File");
-		fc.setInitialDirectory(new File("./recources"));
+		fc.setInitialDirectory(new File("./recources/levels"));
 		fc.getExtensionFilters().addAll(
 				new ExtensionFilter("Text","*.txt"),
 				new ExtensionFilter("XML","*.xml"),
@@ -131,7 +131,7 @@ public class MainWindowController extends Observable implements View, Initializa
 		
 		setChanged();
 		notifyObservers(params);
-		
+		System.exit(0);
 	}
 	@Override
 	public void displayLevel(Level lvl) {

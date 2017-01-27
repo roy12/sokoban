@@ -7,10 +7,12 @@ import Model.MyModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import sun.audio.ContinuousAudioDataStream;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.fxml.FXMLLoader;
 
 
@@ -29,12 +31,8 @@ public class Main extends Application {
 			primaryStage.setTitle("SokobanMaster");
 			
 			//music
-			
-			String musicFile = "./recources/OpenGame/MoZZ.mp3";     // For example
-			Media sound = new Media(new File(musicFile).toURI().toString());
-			MediaPlayer mediaPlayer = new MediaPlayer(sound);
-			mediaPlayer.setCycleCount(5);
-			mediaPlayer.play();
+			playMusic();
+		
 			
 			primaryStage.setOnCloseRequest(event -> {
 				view.exit();
@@ -54,7 +52,17 @@ public class Main extends Application {
 		view.start();	
 	}
 	
-
+	public static void playMusic()
+	{
+		String musicFile = "./recources/OpenGame/MoZZ.mp3";     // For example
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(sound);			
+		mediaPlayer.setCycleCount(10);		
+		mediaPlayer.setAutoPlay(true);
+		mediaPlayer.play();
+		
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
