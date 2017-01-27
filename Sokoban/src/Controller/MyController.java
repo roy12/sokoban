@@ -15,11 +15,12 @@ import Command.MoveCommand;
 import Command.RestartCommand;
 import Command.SaveLevelCommand;
 import Controller.Controller;
-import Model.Model;
+import Controllr.Server.MyServer;
 import Model.MyModel;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import view.ClientHandler;
 import view.View;
 
 
@@ -28,6 +29,7 @@ public class MyController implements Observer {
 	private View view;
 	private Controller controller;
 	private Map<String, Command> commands;
+	MyServer server;
 	
 	IntegerProperty steps;
 		
@@ -75,4 +77,25 @@ public class MyController implements Observer {
 			}
 		});
 	}
+	public void startServer(ClientHandler handler,int port)
+	{
+		handler.addObserver(this);
+		server = new MyServer(port,handler);
+		server.start();
+	}
+
+	public void stopServer()
+	{
+		if(server != null)
+			server.stop();
+		
+	}
+
+	public void safeExit()
+	{
+		stopServer();
+		if(controller != null)
+			controller.stop();
+	}	
+	
 }

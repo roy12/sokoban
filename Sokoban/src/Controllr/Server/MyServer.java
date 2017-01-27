@@ -8,14 +8,19 @@ import java.net.Socket;
 import java.util.LinkedList;
 import java.util.Observable;
 
-public class MyServer extends Observable {
+import view.ClientHandler;
+
+public class MyServer extends Observable{
 	
 	private int port;
 	private boolean stop;
+	private ClientHandler handler;
+	Thread thread;
 	
 	
-	public MyServer(int port)
+	public MyServer(int port,ClientHandler Observedhandler)
 	{
+		this.handler = Observedhandler;
 		this.port=port;
 		stop = false;
 	}
@@ -23,37 +28,41 @@ public class MyServer extends Observable {
 	
 	public void runServer() throws IOException{
 		
-		String commandKey;
-		ServerSocket server = new ServerSocket(port);
-		server.setSoTimeout(1000);
-		Socket aClient = server.accept();
-		BufferedReader br = new BufferedReader(new InputStreamReader(aClient.getInputStream()));
-		LinkedList<String> params= new LinkedList<String>();
-		while(!stop)
-		{
-			
-			commandKey = br.readLine();
-			String[] list = commandKey.split(" ");
-			for(String s : list)
-				params.add(s);
-			notifyObservers(params);
-			
-		}
-		server.close();
 		
+		ServerSocket server = new ServerSocket(port);
+		Socket aClient = server.accept();
+		
+		//the handler continues until it is stopped
+		handler.startCustomIO(aClient.getInputStream(), aClient.getOutputStream());
+		
+		server.close();
 	}
 
 	public void start(){
-		new Thread(new Runnable(){
-			public void run(){
-				try{runServer(); } catch (IOException e){e.printStackTrace(); }
+		 thread = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				try { runServer(); }  catch (IOException e) { e.printStackTrace(); }
+					
 			}
-		}).start();
+		});
+		 thread.start();
+			
 	}
 
 	public void stop()
 	{
-		stop=true;
+		try {
+			//first stop the handler and then wait for the thread to die
+			handler.stop();
+			thread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

@@ -6,17 +6,17 @@ import Controller.MyController;
 import Model.MyModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import sun.audio.ContinuousAudioDataStream;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	
+	public static boolean server = false;
+	public static int port;
 	
 	public void start(Stage primaryStage) {
 		try {
@@ -28,7 +28,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			primaryStage.setTitle("SokobanMaster");
+			primaryStage.setTitle("SokobanMaster");	
 			
 			//music
 			playMusic();
@@ -37,15 +37,27 @@ public class Main extends Application {
 			primaryStage.setOnCloseRequest(event -> {
 				view.exit();
 			});
+			
+			
+			
 			init(view);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
 	
 	private void init(MainWindowController view) {
 		MyModel model = new MyModel();
 		MyController controller = new MyController(model, view);
+		
+		if(server == true)
+		{
+			System.out.println("running with server");
+			controller.startServer(new ClientHandler(),port);
+		}
 		
 		model.addObserver(controller);
 		view.addObserver(controller);
@@ -64,6 +76,17 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		
+		if (args.length >= 2  && args[0].compareToIgnoreCase("-server")==0)
+		{
+			server = true;
+			port = Integer.parseInt(args[1]);
+		}
+		else System.out.println("running without server");
+		
 		launch(args);
 	}
 }
+/*
+
+}*/

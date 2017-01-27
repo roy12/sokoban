@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
@@ -132,7 +134,7 @@ public class MainWindowController extends Observable implements View, Initializa
 		setChanged();
 		notifyObservers(params);
 		System.exit(0);
-	}
+	}	
 	@Override
 	public void displayLevel(Level lvl) {
 		if(lvl!=null){
@@ -140,7 +142,7 @@ public class MainWindowController extends Observable implements View, Initializa
 			}
 			if(lvl.isComplete())
 				try {
-					Thread.sleep(400);
+					Thread.sleep(400);					
 					gd.finishLevel();	
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
