@@ -1,12 +1,12 @@
 package Command;
 
-import Model.Model;
 import Model.MyModel;
 import view.View;
 
 public class DisplayLevelCommand extends Command{
 
 	private MyModel model;
+	@SuppressWarnings("unused")
 	private View view;
 	
 	public DisplayLevelCommand(MyModel model, View view) {

@@ -1,6 +1,6 @@
 package Command;
 
-import Model.Model;
+
 import Model.MyModel;
 
 public class RestartCommand extends Command {

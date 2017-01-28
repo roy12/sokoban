@@ -7,8 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Scanner;
-
-import Model.GameObject;
 import Model.Level;
 import javafx.beans.property.IntegerProperty;
 
@@ -54,7 +52,7 @@ public class ClientHandler extends Observable implements View{
 		});
 		t.start();
 		
-			
+		scan.close();	
 			
 	}
 	public void setOutputStream(OutputStream out)

@@ -41,7 +41,8 @@ public class CLI extends Observable implements View {
 				}				
 			}
 		});
-		thread.start();		
+		thread.start();
+		scanner.close();
 	}
 
 	

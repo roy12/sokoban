@@ -1,18 +1,16 @@
 package Controllr.Server;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.LinkedList;
 import java.util.Observable;
-
 import view.ClientHandler;
 
 public class MyServer extends Observable{
 	
 	private int port;
+	@SuppressWarnings("unused")
 	private boolean stop;
 	private ClientHandler handler;
 	Thread thread;

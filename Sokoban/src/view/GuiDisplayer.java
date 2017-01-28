@@ -19,6 +19,7 @@ public class GuiDisplayer extends Canvas{
 	
 	private Image wall;
 	private Image box;
+	@SuppressWarnings("unused")
 	private Image player;
 	private Image target;
 	private Image floor;
@@ -64,7 +65,9 @@ public class GuiDisplayer extends Canvas{
 		
 		double W = this.getWidth();
 		double H = this.getHeight();
+		@SuppressWarnings("unused")
 		double w = W / lvl.getMap()[0].length;
+		@SuppressWarnings("unused")
 		double h = H / lvl.getMap().length;
 		
 		GraphicsContext gc = getGraphicsContext2D();
@@ -135,7 +138,9 @@ public class GuiDisplayer extends Canvas{
 			Image openPage  = new Image(new FileInputStream("./recources/OpenGame/Open_Game2.png"));
 			if(openPage!=null){
 			GraphicsContext gc = getGraphicsContext2D();
+			@SuppressWarnings("unused")
 			double w = getWidth();
+			@SuppressWarnings("unused")
 			double h = getHeight();
 			
 			gc.drawImage(openPage,0,0);

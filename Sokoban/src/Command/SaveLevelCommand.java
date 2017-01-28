@@ -3,7 +3,6 @@ package Command;
 import java.io.IOException;
 
 
-import Model.Model;
 import Model.MyModel;
 
 public class SaveLevelCommand extends Command {

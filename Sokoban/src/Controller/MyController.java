@@ -58,6 +58,7 @@ public class MyController implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		@SuppressWarnings("unchecked")
 		List<String> params = (List<String>) arg;
 		String commandKey = params.remove(0);
 		Command c = commands.get(commandKey);
